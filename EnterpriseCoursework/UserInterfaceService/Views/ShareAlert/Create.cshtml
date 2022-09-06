@@ -1,0 +1,46 @@
+﻿@model UserInterfaceService.Models.ViewModels.CreateAlertViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Share Alert</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <select name="shareId">
+                <option value="0">Select a share</option>
+                @foreach (var share in Model.Shares)
+                {
+                    <option value="@share.Id">@share.Name</option>
+                }
+            </select>
+            <div class="form-group">
+                <label asp-for="ShareAlert.Subject" class="control-label"></label>
+                <input asp-for="ShareAlert.Subject" class="form-control" />
+                <span asp-validation-for="ShareAlert.Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShareAlert.Message" class="control-label"></label>
+                <input asp-for="ShareAlert.Message" class="form-control" />
+                <span asp-validation-for="ShareAlert.Message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

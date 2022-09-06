@@ -1,0 +1,70 @@
+﻿@model UserInterfaceService.Models.ViewModels.ShareCreateViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Share</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <select name="brokerId" value="@ViewData["BrokerFilter"]">
+                <option value="0">
+                    --Select Broker--
+                </option>
+                @foreach (var broker in Model.Brokers)
+                {
+                    <!option @(broker.Selected ? "selected" : "") value="@broker.Id">
+                        @broker.Name
+                    </!option>
+                }
+            </select>
+            <div class="form-group">
+                <label asp-for="Share.Name" class="control-label"></label>
+                <input asp-for="Share.Name" class="form-control" />
+                <span asp-validation-for="Share.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Share.TradingCode" class="control-label"></label>
+                <input asp-for="Share.TradingCode" class="form-control" />
+                <span asp-validation-for="Share.TradingCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Share.Quantity" class="control-label"></label>
+                <input asp-for="Share.Quantity" class="form-control" />
+                <span asp-validation-for="Share.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Share.Price" class="control-label"></label>
+                <input asp-for="Share.Price" class="form-control" />
+                <span asp-validation-for="Share.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Share.CompanyName" class="control-label"></label>
+                <input asp-for="Share.CompanyName" class="form-control" />
+                <span asp-validation-for="Share.CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Share.CompanyMarketValue" class="control-label"></label>
+                <input asp-for="Share.CompanyMarketValue" class="form-control" />
+                <span asp-validation-for="Share.CompanyMarketValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

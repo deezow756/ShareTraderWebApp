@@ -1,0 +1,173 @@
+﻿@model UserInterfaceService.Models.ViewModels.ShareHolderIndexViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Share Holder Information</h1>
+
+<form asp-action="Index" method="get" class="flex">
+    Filter By Share:
+    <select name="shareId" value="@ViewData["ShareFilter"]">
+        <option value="0">
+            --Select Share--
+        </option>
+        @foreach (var share in Model.Shares)
+        {
+            <!option @(share.Selected ? "selected" : "") value="@share.Id">
+                @share.Name: @share.TradingCode
+            </!option>
+        }
+    </select>
+    <input type="submit" value="Search" class="btn btn-default" /> |
+    <a asp-action="Index">Back to Full List</a>
+</form>
+
+@if (Model.ShareHolders.Count > 0)
+{
+    <h3>Share Holders</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Share
+                </th>
+                <th>
+                    Share Holder
+                </th>
+                <th>
+                    Broker
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var item in Model.ShareHolders)
+                {
+                    <tr>
+                        <td>
+                            <a asp-controller="Share" asp-action="Details" asp-route-id="@item.ShareId">@Model.Shares.Find(a => a.Id == item.ShareId).Name</a>
+                        </td>
+                        <td>
+                            @Model.Users.Find(a => a.Id == item.UserId).UserName
+                        </td>
+                        <td>
+                            <a asp-controller="Broker" asp-action="Details" asp-route-id="@item.BrokerId">@Model.Brokers.Find(a => a.Id == item.BrokerId).Name</a>
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+
+@if (Model.Trades.Count > 0)
+{
+    <h3>Trade Records</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Trading Code
+                </th>
+                <th>
+                    Trade Date
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Buyer
+                </th>
+                <th>
+                    Seller
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Trades)
+            {
+                <tr>
+                    <td>
+                        #@Html.DisplayFor(modelItem => item.TradingCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TradeDate)
+                    </td>
+                    <td>
+                        £@Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Model.Users.Find(a => a.Id == item.BuyerId).UserName
+                    </td>
+                    <td>
+                        <a asp-controller="Broker" asp-action="Details" asp-route-id="@item.SellerId">@Model.Brokers.Find(a => a.Id == item.SellerId).Name</a>
+                    </td>
+                    <td>
+                        <a asp-controller="TraderInfo" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (Model.Alerts.Count > 0)
+{
+    <h3>Alerts</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Share
+                </th>
+                <th>
+                    Subject
+                </th>
+                <th>
+                    Message
+                </th>
+                <th>
+                    Created
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var item in Model.Alerts)
+                {
+                    <tr>
+                        <td>
+                            <a href="Share/Details/@item.Id">@Model.Shares.Find(a => a.Id == item.ShareId).Name </a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Subject)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Message)
+                        </td>
+                        <td>
+                            @item.Created.Date
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}

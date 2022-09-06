@@ -1,0 +1,88 @@
+﻿@model UserInterfaceService.Models.ViewModels.InterestedViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+<h1>Interested Shares</h1>
+    
+    <p>
+        <a asp-controller="Share" asp-action="Index">Shares</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Trading Code
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Company Name
+                </th>
+                <th>
+                    Company Market Value
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Monitors.Count > 0)
+            {
+                @foreach (var item in Model.Shares)
+                {
+                    @if (Model.Monitors.FirstOrDefault(a => a.ShareId == item.Id) != null)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TradingCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quantity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CompanyName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CompanyMarketValue)
+                            </td>
+                            <td>                                    
+                                <div>
+                                    <a asp-controller="Share" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        No Shares Registered For Interest
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

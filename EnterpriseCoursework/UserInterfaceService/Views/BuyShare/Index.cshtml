@@ -1,0 +1,81 @@
+﻿@model UserInterfaceService.Models.ViewModels.BuyShareViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/js/buy-share.js"></script>
+
+<h1 class="text-center">Buy Shares</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 text-center my-5">
+            <form id="reload" asp-action="Index" method="get" class="flex">
+                <div class="form-group mb-3">
+                    <select id="brokerId" name="brokerId">
+                        <option value="0">
+                            --Select Broker--
+                        </option>
+                        @foreach (var broker in Model.Brokers)
+                        {
+                            <!option value="@broker.Id" @(broker.Selected ? "selected" : "")>
+                                @broker.Name
+                            </!option>
+                        }
+                    </select>
+                </div>
+                @if (Model.Shares != null)
+                {
+                    <div class="form-group">
+                        <select id="shareId" name="shareId" >
+                            <option value="0">
+                                --Select Share--
+                            </option>
+                            @foreach (var share in Model.Shares)
+                            {
+                                <!option @(share.Selected ? "selected" : "")  value="@share.Id">
+                                    @share.Name
+                                </!option>
+                            }
+                        </select>
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-6 text-center">
+            <form asp-action="Index" method="post">
+                @if (Model.ShareSelected != null)
+                {
+                    <input id="sharePrice" value="@Model.ShareSelected.Price" hidden />
+                    <input id="shareQuantity" value="@Model.ShareSelected.Quantity" hidden />
+                    <input id="priceHidden" name="price" hidden />
+                    <input name="shareId" value="@ViewData["ShareId"]" hidden />
+                    <input name="brokerId" value="@ViewData["BrokerId"]" hidden />
+                    <div class="mb-3">
+                        <label>Share Price: @Model.ShareSelected.Price</label>
+                    </div>
+                    <div class="mb-3">
+                        <label>Share Quantity: @Model.ShareSelected.Quantity</label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="amount">Enter Amount You Wish To Buy: </label>
+                        <input type="number" name="amount" id="amount" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="price">Cost For Shares: </label>
+                        <h4 id="price"></h4>
+                    </div>
+
+                    <div>
+                        <button id="btnBuy" class="btn btn-primary" type="submit" disabled>Buy</button>
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</div>

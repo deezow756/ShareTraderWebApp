@@ -1,0 +1,78 @@
+﻿@model UserInterfaceService.Models.ViewModels.TraderCreateViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>TraderInformation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <select name="shareId" value="@ViewData["ShareFilter"]">
+                    <option value="-1">
+                        --Select Share--
+                    </option>
+                    @foreach (var share in Model.Shares)
+                    {
+                        <option value="@share.Id">
+                            @share.Name: @share.TradingCode
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trader.Price" class="control-label"></label>
+                <input asp-for="Trader.Price" class="form-control" />
+                <span asp-validation-for="Trader.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trader.Amount" class="control-label"></label>
+                <input asp-for="Trader.Amount" class="form-control" />
+                <span asp-validation-for="Trader.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select name="userIndex" value="@ViewData["UserFilter"]">
+                    <option value="-1">
+                        --Select User--
+                    </option>
+                    @foreach (var (user, index) in Model.Users.Select((value, i) => (value, i)))
+                    {
+                        <option value="@index">
+                            @user.UserName
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="brokerId" value="@ViewData["BrokerFilter"]">
+                    <option value="-1">
+                        --Select Broker--
+                    </option>
+                    @foreach (var broker in Model.Brokers)
+                    {
+                        <option value="@broker.Id">
+                            @broker.Name
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

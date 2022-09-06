@@ -1,0 +1,55 @@
+﻿@model UserInterfaceService.Models.TraderInfoModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Trader Information</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TradingCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TradingCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TradeDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TradeDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BuyerId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BuyerId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SellerId)
+        </dt>
+        <dd class="col-sm-10">
+            <a href="/Broker/Details/@Model.SellerId">@Html.DisplayFor(model => model.SellerId)</a>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

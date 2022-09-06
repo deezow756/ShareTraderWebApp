@@ -1,0 +1,43 @@
+﻿@model UserInterfaceService.Models.MonitorModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Register your interest and be notified if the share value goes below the minimum set or above the maximum set</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+        </div>
+        <form method="post" asp-controller="Monitor" asp-action="Create">
+            
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CurValue" class="control-label">Current Value</label>
+                <input asp-for="CurValue" class="form-control" disabled />
+                <span asp-validation-for="CurValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Min" class="control-label">Add A Minimum Value</label>
+                <input asp-for="Min" class="form-control" />
+                <span asp-validation-for="Min" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Max" class="control-label">Add A Maximum Value</label>
+                <input asp-for="Max" class="form-control" />
+                <span asp-validation-for="Max" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Share" asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,103 @@
+﻿@model UserInterfaceService.Models.ViewModels.TraderIndexViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Trade Records</h1>
+
+@if (User.IsInRole("Manager"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+
+<form asp-action="Index" method="get" class="flex">
+    Filter By Share:
+    <select name="shareId" value="@ViewData["ShareFilter"]">
+        <option value="0">
+            --Select Share--
+        </option>
+        @foreach (var share in Model.Shares)
+        {
+            <!option @(share.Selected ? "selected" : "") value="@share.Id">
+                @share.Name: @share.TradingCode
+            </!option>
+        }
+    </select>
+
+    Filter By Date: From:
+    <input type="date" name="startDate" value="@Model.startDate.Ticks" />
+    To:
+    <input type="date" name="endDate"  value="@Model.endDate.Ticks" />
+    <input type="submit" value="Search" class="btn btn-default" /> |
+    <a asp-action="Index">Back to Full List</a>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Trading Code
+            </th>
+            <th>
+                Trade Date
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Buyer
+            </th>
+            <th>
+                Seller
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model.Traders)
+            {
+                <tr>
+                    <td>
+                        #@Html.DisplayFor(modelItem => item.TradingCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TradeDate)
+                    </td>
+                    <td>
+                        £@Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Model.Users.Find(a => a.Id == item.BuyerId).UserName
+                    </td>
+                    <td>
+                        <a asp-controller="Broker" asp-action="Details" asp-route-id="@item.SellerId">@Model.Brokers.Find(a => a.Id == item.SellerId).Name</a>
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        @if (User.IsInRole("Manager"))
+                        {
+                            <div>
+                                | <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </div>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
