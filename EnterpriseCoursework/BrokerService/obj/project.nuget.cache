@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xDILad2Tb0Sm23La2khRkgshyKccaxGv7Ml0mixWJ6NWiLsK4yl5pOCxeL3hckdAiEvPUezIVHPZj9GJEnxQUw==",
+  "dgSpecHash": "6PFlTp0tOHCUuBCJzWzlEw+E/hwMmm3S7BCPI09+txQ9iD+2Y/t73JaEg1aWyTD4msp/jrcfw1U2NbXqMqH/yw==",
   "success": true,
-  "projectFilePath": "E:\\Uni\\5th Year\\Enterprise\\EnterpriseCoursework\\BrokerService\\BrokerService.csproj",
+  "projectFilePath": "C:\\GitHub\\ShareTraderWebApp\\EnterpriseCoursework\\BrokerService\\BrokerService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Deezow\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Deezow\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
@@ -103,8 +103,7 @@
     "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\Deezow\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
+    "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

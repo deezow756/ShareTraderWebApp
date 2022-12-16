@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gc8tYlFNjceg/eID9dWUae7WVOSrQUuVVrQ0t9Pfxx3O60Je/POGXoWa3DTMbcWzGJY/e8sBGFQJJEChtV8zXg==",
+  "dgSpecHash": "Tyw9S+3xmD41cmx1fQpoSoYPV2wJebYes15vY9g2tqjxKskAi+Mug1tamHtSney2vdZGg0puXP242g98lL1ALQ==",
   "success": true,
-  "projectFilePath": "E:\\Uni\\5th Year\\Enterprise\\EnterpriseCoursework\\ShareAlertService\\ShareAlertService.csproj",
+  "projectFilePath": "C:\\GitHub\\ShareTraderWebApp\\EnterpriseCoursework\\ShareAlertService\\ShareAlertService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Deezow\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Deezow\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
@@ -103,8 +103,7 @@
     "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\Deezow\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
+    "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

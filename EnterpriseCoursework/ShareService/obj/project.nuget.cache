@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZwGt+1hFUCXPi4TbCTZePJmBsEBMcONCDE/o/LG9AwstjENll7uVxolOSduq8Q3pxenmFTlNf/63DEsHtmvuew==",
+  "dgSpecHash": "uteAb5IIYP6fr/ILfgpzvhey531ztVyl8VWlsPOdPDNZIVzOBQalKmC21AA94MNI/sZDydK5fGDHQXW/bSQJig==",
   "success": true,
-  "projectFilePath": "E:\\Uni\\5th Year\\Enterprise\\EnterpriseCoursework\\ShareService\\ShareService.csproj",
+  "projectFilePath": "C:\\GitHub\\ShareTraderWebApp\\EnterpriseCoursework\\ShareService\\ShareService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Deezow\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.23\\microsoft.aspnetcore.jsonpatch.3.1.23.nupkg.sha512",
     "C:\\Users\\Deezow\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.23\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.23.nupkg.sha512",
@@ -102,8 +102,7 @@
     "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\Deezow\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
+    "C:\\Users\\Deezow\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Cir7Ynsb36xCscvbAhfIl6SDT8yhRQXINK5rmMJmJ2tMoJgEa1/LV8HkPLDdMgTPaIWC4693Um+JabbbeXzoxg==",
+  "dgSpecHash": "xADWaAuURvFT44BGyn1INWsz7og3mPtMkh13ocEQMpHmOCvgHKzNx7AWIoblL8wa/xGhjBuP/sNZIHgkeQbSsA==",
   "success": true,
-  "projectFilePath": "E:\\Uni\\5th Year\\Enterprise\\EnterpriseCoursework\\APIGateway\\APIGateway.csproj",
+  "projectFilePath": "C:\\GitHub\\ShareTraderWebApp\\EnterpriseCoursework\\APIGateway\\APIGateway.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Deezow\\.nuget\\packages\\fluentvalidation\\8.5.0\\fluentvalidation.8.5.0.nupkg.sha512",
     "C:\\Users\\Deezow\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.0.0\\microsoft.aspnetcore.jsonpatch.3.0.0.nupkg.sha512",
@@ -15,8 +15,7 @@
     "C:\\Users\\Deezow\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\Deezow\\.nuget\\packages\\ocelot\\13.8.0\\ocelot.13.8.0.nupkg.sha512",
     "C:\\Users\\Deezow\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512",
-    "C:\\Users\\Deezow\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.6.0\\system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512",
-    "C:\\Users\\Deezow\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
+    "C:\\Users\\Deezow\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.6.0\\system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512"
   ],
   "logs": []
 }
